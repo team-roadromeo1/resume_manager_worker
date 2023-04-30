@@ -2,17 +2,12 @@ package com.example.demo.data;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
-
-
 
 @Document(collection = "data")
 @Entity
@@ -41,8 +36,10 @@ public class PersonData {
 	private String phone;
 	
 
-	private Address address;
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
+	private  @Valid  Address address;
+
 	private List<@Valid Education> education;
 
 	private List<@NotBlank(message = "Skills list can not be empty") String> skills; 
