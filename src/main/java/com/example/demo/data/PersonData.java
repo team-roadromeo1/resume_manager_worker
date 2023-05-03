@@ -36,9 +36,9 @@ public class PersonData {
 	private String phone;
 	
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "address_id")
-	private  @Valid  Address address;
+	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pd_id", referencedColumnName = "id")
+	private  @Valid  List<Address> address;
 
 	private List<@Valid Education> education;
 

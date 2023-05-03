@@ -2,6 +2,9 @@ package com.example.demo.data;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
@@ -10,6 +13,9 @@ import javax.validation.constraints.NotNull;
 
 @Document(collection = "Address")
 @Entity
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Data
 public class Address {
 
