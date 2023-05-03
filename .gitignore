@@ -2,8 +2,8 @@ HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
-## senssitive darta ##
-src/main/resources/application.properties
+## sensitive data ##
+!**/src/main/resources/application.properties
 
 !**/src/main/**/target/
 !**/src/test/**/target/
