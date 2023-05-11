@@ -8,10 +8,10 @@ import java.util.List;
 public interface DataService {
 
     public List<PersonData> getAllData();
-    public PersonData getData(String Id);
+    public PersonData getData(Long Id);
     public ResponseFormat saveData(PersonData personData);
-    public ResponseFormat alterData(PersonData personData, String Id);
+    public ResponseFormat alterData(PersonData personData, Long Id);
     public ResponseFormat dropAllData();
-    public ResponseFormat dropData(String Id);
+    public ResponseFormat dropData(Long Id);
 
 }

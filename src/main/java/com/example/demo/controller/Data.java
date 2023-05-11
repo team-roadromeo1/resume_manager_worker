@@ -34,7 +34,7 @@ public class Data {
     @ApiOperation(value = "Get the data from Id")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Successful Operation"), @ApiResponse(code = 404, message = "Record not found")})
     @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getData(@PathVariable("id") String id) {
+    public ResponseEntity<?> getData(@PathVariable("id") Long id) {
         return ResponseEntity.ok(manager.getData(id));
     }
 
@@ -48,7 +48,7 @@ public class Data {
     @ApiOperation(value = "Update the whole record.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record Updated.")})
     @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PATCH)
-    public ResponseEntity<?> updateData(@Valid @RequestBody PersonData data, @PathVariable("id") String id) {
+    public ResponseEntity<?> updateData(@Valid @RequestBody PersonData data, @PathVariable("id") Long id) {
         return ResponseEntity.ok(manager.alterData(data, id));
     }
 
@@ -62,7 +62,7 @@ public class Data {
     @ApiOperation(value = "Delete records from an Id.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record deleted.")})
     @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteData(@PathVariable("id") String id) {
+    public ResponseEntity<?> deleteData(@PathVariable("id") Long id) {
         return ResponseEntity.ok(manager.dropData(id));
     }
 }

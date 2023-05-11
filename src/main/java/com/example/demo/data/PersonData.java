@@ -6,12 +6,20 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
-@Document(collection = "data")
+
 @Entity
+@Table(name = "person")
 @Data
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class PersonData {
 	
 	
@@ -20,7 +28,7 @@ public class PersonData {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 	@NotBlank(message = "First Name can not be empty")
 	private String firstName;
 	

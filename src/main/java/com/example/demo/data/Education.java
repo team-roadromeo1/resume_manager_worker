@@ -1,13 +1,24 @@
 package com.example.demo.data;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+
+@Entity
+@Table(name = "education")
 @Data
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Education {
 	
 	@NotBlank(message = "Education name must not be empty")

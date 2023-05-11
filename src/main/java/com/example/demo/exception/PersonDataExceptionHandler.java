@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.data.ResponseFormat;
 
+import javax.servlet.http.HttpServletRequest;
+
 @ControllerAdvice
-public class CustomExceptionHandler {
+public class PersonDataExceptionHandler {
 	
 	@Autowired
 	ResponseFormat response;
-	
-	
+
+
 	//handle custom exceptions from validation annotations...
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)

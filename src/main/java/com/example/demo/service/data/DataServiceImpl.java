@@ -1,5 +1,6 @@
 package com.example.demo.service.data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,11 +22,15 @@ public class DataServiceImpl implements  DataService{
 		
 	@Override
 	public List<PersonData> getAllData(){
-		return repo.findAll();
+
+		List<PersonData> personDataList = new ArrayList<PersonData>();
+		repo.findAll().forEach(personDataList::add);
+
+		return  personDataList;
 	}
 
 	@Override
-	public PersonData getData(String id) {
+	public PersonData getData(Long id) {
 		return repo.findById(id).get();
 	}
 
@@ -42,7 +47,7 @@ public class DataServiceImpl implements  DataService{
 	}
 
 	@Override
-	public ResponseFormat alterData(PersonData data, String id) {
+	public ResponseFormat alterData(PersonData data, Long id) {
 		data.setId(id);
 		repo.save(data);
 		format.setStatus(HttpStatus.OK.value());
@@ -61,7 +66,7 @@ public class DataServiceImpl implements  DataService{
 	}
 
 	@Override
-	public ResponseFormat dropData(String id) {
+	public ResponseFormat dropData(Long id) {
 		repo.deleteById(id);
 		format.setStatus(HttpStatus.OK.value());
 		format.setMessage("Data deleted successfully for : " + id);

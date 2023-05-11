@@ -11,8 +11,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Document(collection = "Address")
 @Entity
+@Table(name = "address")
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
