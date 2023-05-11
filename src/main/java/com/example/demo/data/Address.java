@@ -22,7 +22,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     @NotNull(message = "House number can not be empty.")
     private int house_no;
     @NotBlank(message = "Address detail can not be empty")

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,11 +20,13 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public List<Address> listAllAddresses() {
-        return addressRepository.findAll();
+        List<Address> addressList = new ArrayList<>();
+        addressRepository.findAll().forEach(addressList::add);
+        return addressList;
     }
 
     @Override
-    public Address addressFromId(String id) {
+    public Address addressFromId(Long id) {
         return addressRepository.findById(id).get();
     }
 
@@ -38,7 +41,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public ResponseFormat updateAddress(Address address, String Id) {
+    public ResponseFormat updateAddress(Address address, Long Id) {
         address.setId(Id);
         addressRepository.save(address);
         format.setStatus(HttpStatus.OK.value());
@@ -49,7 +52,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public ResponseFormat deleteAddress(String Id) {
+    public ResponseFormat deleteAddress(Long Id) {
         addressRepository.deleteById(Id);
         format.setStatus(HttpStatus.OK.value());
         format.setMessage("Record Deleted");

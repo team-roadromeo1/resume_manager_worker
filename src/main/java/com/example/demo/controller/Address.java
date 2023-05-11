@@ -31,7 +31,7 @@ public class Address {
     @ApiOperation(value = "List out the address for Id")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record Found"), @ApiResponse(code = 404, message = "Record not found")})
     @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getAddressFromId(@PathVariable("id") String id) {
+    public ResponseEntity<?> getAddressFromId(@PathVariable("id") Long id) {
         return ResponseEntity.ok(addressService.addressFromId(id));
     }
 
@@ -45,7 +45,7 @@ public class Address {
     @ApiOperation(value = "Updates the address details.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record Updated.")})
     @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PATCH)
-    public ResponseEntity<?> updateAddress(@Valid @RequestBody com.example.demo.data.Address addressa, @PathVariable("id") String id) {
+    public ResponseEntity<?> updateAddress(@Valid @RequestBody com.example.demo.data.Address addressa, @PathVariable("id") Long id) {
         return ResponseEntity.ok(addressService.updateAddress(addressa, id));
     }
 
@@ -59,7 +59,7 @@ public class Address {
     @ApiOperation(value = "Delete address from an Id.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record deleted.")})
     @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteAddress(@PathVariable("id") String id) {
+    public ResponseEntity<?> deleteAddress(@PathVariable("id") Long id) {
         return ResponseEntity.ok(addressService.deleteAddress(id));
     }
 

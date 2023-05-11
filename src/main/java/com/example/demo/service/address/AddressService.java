@@ -8,10 +8,10 @@ import java.util.List;
 public interface AddressService {
 
     public List<Address> listAllAddresses();
-    public Address addressFromId(String id);
+    public Address addressFromId(Long id);
     public ResponseFormat saveAddress(Address address);
-    public ResponseFormat updateAddress(Address address, String Id);
-    public ResponseFormat deleteAddress(String Id);
+    public ResponseFormat updateAddress(Address address, Long Id);
+    public ResponseFormat deleteAddress(Long Id);
     public ResponseFormat deleteAllAddress();
 
 }
