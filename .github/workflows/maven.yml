@@ -21,6 +21,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+     KEY: ${{ MONGO_DB_ACCESS_KEY_ID }}
+     
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -31,7 +34,7 @@ jobs:
         cache: maven
         
     - name: Setup the environment variables
-      run: export MONGO_DB_ACCESS_KEY_ID=${{ secrets.MONGO_DB_ACCESS_KEY_ID }} 
+      run: export MONGO_DB_ACCESS_KEY_ID=$KEY
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
