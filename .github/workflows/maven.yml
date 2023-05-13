@@ -9,7 +9,7 @@
 name: Java CI with Maven
 
 env:
- NAME: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
+ KEY: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
      
 
 on:
@@ -36,10 +36,10 @@ jobs:
         cache: maven
     
     - name: show key
-      run: echo "mongodb key-$NAME"
+      run: echo "mongodb key-$KEY"
       
     - name: Setup the environment variables
-      run: export MONGO_DB_ACCESS_KEY_ID=$NAME
+      run: export MONGO_DB_ACCESS_KEY_ID=$KEY
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
