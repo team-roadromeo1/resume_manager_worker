@@ -8,6 +8,10 @@
 
 name: Java CI with Maven
 
+env:
+ KEY: ${{ MONGO_DB_ACCESS_KEY_ID }}
+     
+
 on:
   push:
     branches: [ "main", "resume_manager_30-04-2023" ]
@@ -21,9 +25,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-     KEY: ${{ MONGO_DB_ACCESS_KEY_ID }}
-     
+  
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
