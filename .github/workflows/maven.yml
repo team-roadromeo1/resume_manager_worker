@@ -34,7 +34,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-        
+    
+    - name: show key
+      run: echo "mongodb key-$NAME"
+      
     - name: Setup the environment variables
       run: export MONGO_DB_ACCESS_KEY_ID=$NAME
       
