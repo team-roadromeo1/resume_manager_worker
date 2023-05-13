@@ -9,7 +9,7 @@
 name: Java CI with Maven
 
 env:
- NAME: ${{ MONGO_DB_ACCESS_KEY_ID }}
+ NAME: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
      
 
 on:
