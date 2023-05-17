@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.data.ResponseFormat;
 
-import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class PersonDataExceptionHandler {

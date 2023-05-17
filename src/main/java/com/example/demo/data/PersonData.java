@@ -10,7 +10,7 @@ import javax.validation.constraints.Pattern;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
@@ -18,6 +18,7 @@ import lombok.Data;
 @Table(name = "person")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 public class PersonData {
@@ -46,13 +47,19 @@ public class PersonData {
 
 	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "pd_id", referencedColumnName = "id")
-	private  @Valid  List<Address> address;
+	private List<@Valid Address> address;
 
+	@OneToMany(targetEntity =  Education.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pd_id", referencedColumnName = "id")
 	private List<@Valid Education> education;
 
 	private List<@NotBlank(message = "Skills list can not be empty") String> skills; 
 	
+	@OneToMany(targetEntity = Experience.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pd_id", referencedColumnName = "id")
 	private List<@Valid Experience> experiences;
 	
+	@OneToMany(targetEntity = Project.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pd_id", referencedColumnName = "id")
 	private List<@Valid Project> projects;
 }
