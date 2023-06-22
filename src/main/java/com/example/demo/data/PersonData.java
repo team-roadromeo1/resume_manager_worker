@@ -1,19 +1,15 @@
 package com.example.demo.data;
 
-import java.util.List;
 
 import javax.persistence.*;
 //import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import springfox.documentation.annotations.ApiIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

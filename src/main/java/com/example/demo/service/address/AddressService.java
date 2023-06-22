@@ -2,10 +2,8 @@ package com.example.demo.service.address;
 
 import com.example.demo.data.Address;
 import com.example.demo.data.ResponseFormat;
-
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 
 
 public interface AddressService {

@@ -9,9 +9,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.core.sym.Name;
-
-import io.swagger.v3.oas.annotations.Hidden;
 
 import io.swagger.annotations.ApiModelProperty;
 

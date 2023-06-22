@@ -1,13 +1,12 @@
 package com.example.demo.data;
 
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -52,12 +51,7 @@ public class Project {
 	@Column(name = "description")
 	private String description;
 	
-	// @Column(name = "")
-	// private List<@NotBlank(message = "List of technologies can not be empty.") String> tech_used;
-	
 	@Column(name = "source")
 	private String source;
 	
-	// @OneToMany(mappedBy = "project")
-	// private PersonData personData;
 }

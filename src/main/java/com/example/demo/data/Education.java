@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -60,6 +59,4 @@ public class Education {
 	@Column(name = "percentage")
 	private double percentage; 
 
-	// @OneToMany(mappedBy = "education")
-	// private PersonData personData;
 }

@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -54,6 +53,4 @@ public class Experience {
 	@Column(name = "description")
 	private String description;
 
-	// @OneToMany(mappedBy = "experience")
-	// private PersonData personData;
 }

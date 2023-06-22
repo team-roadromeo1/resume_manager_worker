@@ -2,10 +2,7 @@ package com.example.demo.service.data;
 
 import com.example.demo.data.PersonData;
 import com.example.demo.data.ResponseFormat;
-
 import java.util.List;
-
-import org.springframework.stereotype.Component;
 
 
 public interface DataService {
