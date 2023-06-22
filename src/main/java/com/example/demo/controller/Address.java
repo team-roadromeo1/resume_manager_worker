@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.mapping.UrlMapper;
 import com.example.demo.service.address.AddressService;
+
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 public class Address {
 
     @Autowired
-    AddressService addressService;
+    private AddressService addressService;
 
     @ApiOperation(value = "List out all the addresses")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Records Found"), @ApiResponse(code = 404, message = "Records Not Found")})

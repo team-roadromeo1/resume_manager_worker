@@ -9,15 +9,16 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.data.PersonData;
 import com.example.demo.data.ResponseFormat;
-import com.example.demo.repository.DataRepository;
+import com.example.demo.repository.data.DataRepository;
 
 @Service
 public class DataServiceImpl implements  DataService{
 	
+
 	@Autowired
-	DataRepository repo;
+	private DataRepository repo;
 	@Autowired
-	ResponseFormat format;
+	private ResponseFormat format;
 		
 	@Override
 	public List<PersonData> getAllData(){

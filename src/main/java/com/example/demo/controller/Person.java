@@ -19,10 +19,10 @@ import io.swagger.annotations.ApiResponse;
 
 @RestController
 @RequestMapping(value = UrlMapper.globalUrl + UrlMapper.dataUrl)
-public class Data {
+public class Person {
 
     @Autowired
-    DataServiceImpl manager;
+    private DataServiceImpl manager;
 
     @ApiOperation(value = "Get all users", notes = "It will fetch all the users.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Succesful operation"), @ApiResponse(code = 404, message = "Record Not Found")})

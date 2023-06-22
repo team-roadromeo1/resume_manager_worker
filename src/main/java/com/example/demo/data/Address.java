@@ -9,6 +9,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.core.sym.Name;
+
+import io.swagger.v3.oas.annotations.Hidden;
+
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "address")
 @NoArgsConstructor
@@ -18,37 +24,36 @@ import javax.validation.constraints.NotNull;
 @Data
 public class Address {
 
-    public Address(Long id, @NotNull(message = "House number can not be empty.") int house_no,
-            @NotBlank(message = "Address detail can not be empty") String address_details, String landmark,
-            String other_landmark, @NotBlank(message = "City name can not be empty") String city,
-            @NotNull(message = "Pin code can not be empty") long pin_code,
-            @NotBlank(message = "Country name can not be empty") String country) {
-        this.id = id;
-        this.house_no = house_no;
-        this.address_details = address_details;
-        this.landmark = landmark;
-        this.other_landmark = other_landmark;
-        this.city = city;
-        this.pin_code = pin_code;
-        this.country = country;
-    }
-
+    @ApiModelProperty(hidden = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+   
     @NotNull(message = "House number can not be empty.")
+    @Column(name = "house_no")
     private int house_no;
+   
     @NotBlank(message = "Address detail can not be empty")
+    @Column(name = "address_details")
     private String address_details;
+    
+    @Column(name = "lanmark")
     private String landmark;
+    
+    @Column(name = "other_landmark")
     private String other_landmark;
-    @NotBlank(message = "City name can not be empty")
-    private String city;
-    @NotNull(message = "Pin code can not be empty")
-    private long pin_code;
-    @NotBlank(message = "Country name can not be empty")
-    private String country;
-    @OneToMany(mappedBy = "address")
-    private PersonData personData;
 
+    @NotBlank(message = "City name can not be empty")
+    @Column(name = "city")
+    private String city;
+    
+    @NotNull(message = "Pin code can not be empty")
+    @Column(name = "pin_code")
+    private long pin_code;
+    
+    @NotBlank(message = "Country name can not be empty")
+    @Column(name = "country")
+    private String country;
+    
 }

@@ -5,6 +5,9 @@ import com.example.demo.data.ResponseFormat;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+
 public interface DataService {
 
     public List<PersonData> getAllData();

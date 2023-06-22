@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,47 +27,39 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Education {
-	
-	public Education(Long id, @NotBlank(message = "Education name must not be empty") String name,
-			@NotBlank(message = "Education type must not be empty") String type,
-			@NotBlank(message = "University name must not be empty") String university,
-			@Max(value = 2022, message = "Starting date can not be in future") @Min(value = 1850, message = "Staritng date can not be before 1850's") int startingYear,
-			@Max(value = 2022, message = "Ending date can not be in future") @Min(value = 1850, message = "Ending date can not be before 1850's") int endingYear,
-			double percentage) {
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.university = university;
-		this.startingYear = startingYear;
-		this.endingYear = endingYear;
-		this.percentage = percentage;
-	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 
 	@NotBlank(message = "Education name must not be empty")
+	@Column(name = "name")
 	private String name;
 	
 	@NotBlank(message = "Education type must not be empty")
+	@Column(name = "type")
 	private String type;
 	
 	@NotBlank(message = "University name must not be empty")
+	@Column(name = "university")
 	private String university;
 	
 	@Max(value = 2022, message = "Starting date can not be in future")
 	@Min(value = 1850, message = "Staritng date can not be before 1850's")
+	@Column(name = "starting_year")
 	private int startingYear;
 	
 
 	@Max(value = 2022, message = "Ending date can not be in future")
 	@Min(value = 1850, message = "Ending date can not be before 1850's")
+	@Column(name = "ending_year")
 	private int endingYear;
 	
-	
+	@Column(name = "percentage")
 	private double percentage; 
 
-	@OneToMany(mappedBy = "education")
-	private PersonData personData;
+	// @OneToMany(mappedBy = "education")
+	// private PersonData personData;
 }
