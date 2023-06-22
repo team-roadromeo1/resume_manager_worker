@@ -2,7 +2,8 @@ package com.example.demo.service.address;
 
 import com.example.demo.data.Address;
 import com.example.demo.data.ResponseFormat;
-import com.example.demo.repository.AddressRepository;
+import com.example.demo.repository.address.AddressRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,11 @@ import java.util.List;
 @Service
 public class AddressServiceImpl implements AddressService {
 
+    
     @Autowired
-    AddressRepository addressRepository;
+    private ResponseFormat format;
     @Autowired
-    ResponseFormat format;
+    private AddressRepository addressRepository;
 
     @Override
     public List<Address> listAllAddresses() {
