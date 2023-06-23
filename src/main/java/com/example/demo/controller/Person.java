@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.data.PersonData;
+
 import com.example.demo.mapping.UrlMapper;
-import com.example.demo.service.data.DataServiceImpl;
+import com.example.demo.service.person.PersonService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -22,7 +23,7 @@ import io.swagger.annotations.ApiResponse;
 public class Person {
 
     @Autowired
-    private DataServiceImpl manager;
+    private PersonService manager;
 
     @ApiOperation(value = "Get all users", notes = "It will fetch all the users.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Succesful operation"), @ApiResponse(code = 404, message = "Record Not Found")})
@@ -41,14 +42,14 @@ public class Person {
     @ApiOperation(value = "Save the data")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 201, message = "Record Created")})
     @RequestMapping(value = "/save/", method = RequestMethod.POST)
-    public ResponseEntity<?> saveData(@Valid @RequestBody PersonData data) {
-        return ResponseEntity.ok(manager.saveData(data));
+    public ResponseEntity<?> saveData(@Valid @RequestBody com.example.demo.data.Person data) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(manager.saveData(data));
     }
 
     @ApiOperation(value = "Update the whole record.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record Updated.")})
-    @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PATCH)
-    public ResponseEntity<?> updateData(@Valid @RequestBody PersonData data, @PathVariable("id") Long id) {
+    @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateData(@Valid @RequestBody com.example.demo.data.Person data, @PathVariable("id") Long id) {
         return ResponseEntity.ok(manager.alterData(data, id));
     }
 

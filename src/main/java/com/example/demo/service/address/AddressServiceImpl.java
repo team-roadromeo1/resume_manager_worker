@@ -3,7 +3,6 @@ package com.example.demo.service.address;
 import com.example.demo.data.Address;
 import com.example.demo.data.ResponseFormat;
 import com.example.demo.repository.address.AddressRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,23 +17,23 @@ public class AddressServiceImpl implements AddressService {
     @Autowired
     private ResponseFormat format;
     @Autowired
-    private AddressRepository addressRepository;
+    private AddressRepository repo;
 
     @Override
     public List<Address> listAllAddresses() {
-        List<Address> addressList = new ArrayList<>();
-        addressRepository.findAll().forEach(addressList::add);
-        return addressList;
+        List<Address> addressDataList = new ArrayList<Address>();
+        repo.findAll().forEach(addressDataList::add);
+        return addressDataList;
     }
 
     @Override
     public Address addressFromId(Long id) {
-        return addressRepository.findById(id).get();
+        return repo.findById(id).get();
     }
 
     @Override
     public ResponseFormat saveAddress(Address address) {
-        addressRepository.save(address);
+        repo.save(address);
 
         format.setStatus(HttpStatus.CREATED.value());
         format.setMessage("Record Created");
@@ -45,7 +44,7 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public ResponseFormat updateAddress(Address address, Long Id) {
         address.setId(Id);
-        addressRepository.save(address);
+        repo.save(address);
         format.setStatus(HttpStatus.OK.value());
         format.setMessage("Record Updated");
         format.setTimeStamp(System.currentTimeMillis());
@@ -55,7 +54,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ResponseFormat deleteAddress(Long Id) {
-        addressRepository.deleteById(Id);
+        repo.deleteById(Id);
         format.setStatus(HttpStatus.OK.value());
         format.setMessage("Record Deleted");
         format.setTimeStamp(System.currentTimeMillis());
@@ -65,7 +64,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ResponseFormat deleteAllAddress() {
-       addressRepository.deleteAll();
+       repo.deleteAll();
        format.setStatus(HttpStatus.OK.value());
        format.setMessage("All records deleted");
        format.setTimeStamp(System.currentTimeMillis());
