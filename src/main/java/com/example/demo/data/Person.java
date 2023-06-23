@@ -21,7 +21,7 @@ import lombok.Data;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class PersonData {
+public class Person {
 	
 	
 	private static final String email_pattern = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
