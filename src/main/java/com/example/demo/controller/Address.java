@@ -43,7 +43,7 @@ public class Address {
 
     @ApiOperation(value = "Updates the address details.")
     @io.swagger.annotations.ApiResponses(value = {@ApiResponse(code = 200, message = "Record Updated.")})
-    @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/updateById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateAddress(@Valid @RequestBody com.example.demo.data.Address addressa, @PathVariable("id") Long id) {
         return ResponseEntity.ok(manager.updateAddress(addressa, id));
     }
