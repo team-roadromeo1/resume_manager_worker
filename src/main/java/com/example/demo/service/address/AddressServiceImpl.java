@@ -68,7 +68,6 @@ public class AddressServiceImpl implements AddressService {
        format.setStatus(HttpStatus.OK.value());
        format.setMessage("All records deleted");
        format.setTimeStamp(System.currentTimeMillis());
-
        return format;
     }
 
