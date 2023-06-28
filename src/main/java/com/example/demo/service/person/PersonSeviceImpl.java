@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.data.Person;
 import com.example.demo.data.ResponseFormat;
-import com.example.demo.repository.data.DataRepository;
+import com.example.demo.repository.person.PersonRepository;
 
 @Service
 public class PersonSeviceImpl implements  PersonService{
 	
 
 	@Autowired
-	private DataRepository repo;
+	private PersonRepository repo;
 	@Autowired
 	private ResponseFormat format;
 		
