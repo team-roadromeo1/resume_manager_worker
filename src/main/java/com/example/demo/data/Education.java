@@ -11,6 +11,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,7 +28,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Education {
 
-
+	@ApiModelProperty(hidden = true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -45,14 +46,10 @@ public class Education {
 	@Column(name = "university")
 	private String university;
 	
-	@Max(value = 2022, message = "Starting date can not be in future")
-	@Min(value = 1850, message = "Staritng date can not be before 1850's")
 	@Column(name = "starting_year")
 	private int startingYear;
 	
 
-	@Max(value = 2022, message = "Ending date can not be in future")
-	@Min(value = 1850, message = "Ending date can not be before 1850's")
 	@Column(name = "ending_year")
 	private int endingYear;
 	

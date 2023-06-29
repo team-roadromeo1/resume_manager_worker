@@ -12,6 +12,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,6 +28,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Project {
 
+	@ApiModelProperty(hidden=true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -36,8 +38,6 @@ public class Project {
 	@Column(name = "name")
 	private String name;
 
-	@Max(value = 2023, message = "Project starting date can not be in future.")
-	@Min(value = 1850, message = "Project starting date can not be before 1850's.")
 	@Column(name = "starting_year")
 	private int startingYear;
 
