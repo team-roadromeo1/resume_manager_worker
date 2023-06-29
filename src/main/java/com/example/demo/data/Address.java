@@ -14,11 +14,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name = "address")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Data
 public class Address {
 
     @ApiModelProperty(hidden = true)
@@ -51,6 +51,5 @@ public class Address {
     
     @NotBlank(message = "Country name can not be empty")
     @Column(name = "country")
-    private String country;
-    
+    private String country;   
 }

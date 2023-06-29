@@ -1,8 +1,8 @@
 package com.example.demo.data;
 
 
+import java.util.Set;
 import javax.persistence.*;
-//import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,5 +50,9 @@ public class Person {
 	@Pattern(regexp = phone_pattern, message = "Phone number should be of  10 digits.")	
 	@Column(name = "phone")
 	private String phone;
-	
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "person_id",referencedColumnName = "id")
+	private Set<Address> address;
+
 }

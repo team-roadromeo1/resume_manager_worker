@@ -3,6 +3,7 @@ package com.example.demo.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -12,8 +13,8 @@ import com.example.demo.data.Person;
 @Component
 public class TestData {
 
-    public Person getPersonData(Long id){
-        Person personData = new Person(id, "John", "Doe", "john1test@email.com", "1234567890");           
+    public Person getPersonData(Long id){ 
+        Person personData = new Person(id, "John", "Doe", "john1test@email.com", "1234567890", Set.of(new TestData().getAddressData(Long.valueOf(1))));           
         return personData; 
     }
 
@@ -36,7 +37,7 @@ public class TestData {
         List<Person> list = new ArrayList<>(len);
 
         for(int i = 1; i <= len; i++){
-            list.add(new Person(Long.valueOf(i), "John", "Doe", "john" + i + "doe@email.com", "1234567890"));
+            list.add(new Person(Long.valueOf(i), "John", "Doe", "john" + i + "doe@email.com", "1234567890", Set.of(new TestData().getAddressData(Long.valueOf(1)))));
         }
         return list;
     }
