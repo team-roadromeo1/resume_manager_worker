@@ -20,12 +20,12 @@ Follow these steps to set up the Resume Manager API Spring Boot application:
 
 1. Clone this repository to your local machine:
    ```sh
-   git clone https://github.com/your-username/resume-manager-spring-boot.git
+   git clone https://github.com/RoadRomeo1/Resume_manager.git
    ```
 
 2. Navigate to the project directory:
    ```sh
-   cd resume-manager-spring-boot
+   cd resume-manager
    ```
 
 3. Build the project using Maven:
@@ -40,9 +40,11 @@ Follow these steps to set up the Resume Manager API Spring Boot application:
 
 5. The API will be accessible at `http://localhost:8080`. You can configure the port and other settings in the `application.properties` file.
 
-## API Documentation
 
-For detailed instructions on how to use the API endpoints, refer to the [API Documentation](documentation.md).
+## API Documentation
+The API is documented using Swagger, providing an interactive and user-friendly interface to explore and test the endpoints.
+
+Access the Swagger UI by visiting `http://localhost:8080/swagger-ui.html` after starting the application.
 
 ## Examples
 
