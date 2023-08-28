@@ -36,7 +36,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("test")
 public class AddressTest {
 
     @MockBean
@@ -138,7 +137,8 @@ public class AddressTest {
 
     @Test
     void testDeleteAllAddress() throws Exception {
-        
+
+
         response.setStatus(HttpStatus.OK.value());
         response.setMessage("All address are deleted");
         response.setTimeStamp(System.currentTimeMillis());

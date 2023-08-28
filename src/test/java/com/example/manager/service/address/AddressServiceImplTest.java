@@ -24,7 +24,6 @@ import com.example.manager.util.TestData;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
 class AddressServiceImplTest {
 
     @InjectMocks
@@ -84,6 +83,7 @@ class AddressServiceImplTest {
         assertEquals(response.getStatus(), testResponse.getStatus());
         assertEquals(response.getMessage(), testResponse.getMessage());
     }
+
 
     @Test
     void updateAddress() {

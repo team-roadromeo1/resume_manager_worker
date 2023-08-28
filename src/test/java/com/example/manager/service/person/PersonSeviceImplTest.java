@@ -24,7 +24,6 @@ import java.util.Optional;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
 class PersonSeviceImplTest {
 
     @InjectMocks
