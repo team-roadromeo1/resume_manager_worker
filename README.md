@@ -46,52 +46,10 @@ The API is documented using Swagger, providing an interactive and user-friendly 
 
 Access the Swagger UI by visiting `http://localhost:8080/swagger-ui.html` after starting the application.
 
-## Examples
-
-Here are some usage examples for the Resume Manager API:
-
-**Create a Resume:**
-```http
-POST /api/resumes
-Content-Type: application/json
-
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  // Other resume details
-}
-```
-
-**Retrieve a Resume:**
-```http
-GET /api/resumes/{resumeId}
-```
-
-**Update a Resume:**
-```http
-PUT /api/resumes/{resumeId}
-Content-Type: application/json
-
-{
-  // Updated resume details
-}
-```
-
-**Delete a Resume:**
-```http
-DELETE /api/resumes/{resumeId}
-```
-
 ## Contributing
 
 We welcome contributions to the Resume Manager API Spring Boot app! If you identify any bugs, want to introduce new features, or enhance the documentation, please open an issue or submit a pull request. Before you start, please review our [Contribution Guidelines](CONTRIBUTING.md).
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Designed and developed by ###Himanshu Vyas.
 
----
-
-Designed and developed by [Your Name](https://github.com/your-username).
-
-If you have any inquiries or require assistance, feel free to reach out to me at your@email.com.
