@@ -15,7 +15,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
 
 
-	private @NotNull ApiInfo apiInfo() {
+	private ApiInfo apiInfo() {
 		return new ApiInfo("Resume Builder API", "API for creating and managing resume", "1.0.1", "Terms of Service",
 				new Contact("example.org", "www.example.org", "help@example.org"), "Open-Source",
 				"Open Source License Link", Collections.emptyList());
