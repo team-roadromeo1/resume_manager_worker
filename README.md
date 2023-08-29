@@ -1,4 +1,4 @@
-# Resume Manager API - Spring Boot App
+# Resume Manager API
 
 The Resume Manager API is a Spring Boot application that enables you to manage resumes and CVs through a powerful and user-friendly API. With this API, you can perform operations such as creating, retrieving, updating, and deleting resumes, making it seamless to integrate resume management into your applications and services.
 
