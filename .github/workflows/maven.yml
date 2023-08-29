@@ -8,6 +8,10 @@
 
 name: Java CI with Maven
 
+env:
+ KEY: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
+     
+
 on:
   push:
     branches: [ "main" ]
@@ -21,6 +25,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+  
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -29,6 +34,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+      
+    - name: Setup the environment variables
+      run: export MONGO_DB_ACCESS_KEY_ID=$KEY
+      
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 

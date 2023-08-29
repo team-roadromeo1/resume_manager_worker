@@ -23,7 +23,7 @@ public class PersonSeviceImpl implements  PersonService{
 	@Override
 	public List<Person> getAllData(){
 
-		List<Person> personDataList = new ArrayList<Person>();
+		List<Person> personDataList = new ArrayList<>();
 		repo.findAll().forEach(personDataList::add);
 		return  personDataList;
 	}
