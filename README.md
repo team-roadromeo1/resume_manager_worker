@@ -48,7 +48,7 @@ Access the Swagger UI by visiting `http://localhost:8080/swagger-ui.html` after 
 
 ## Contributing
 
-We welcome contributions to the Resume Manager API Spring Boot app! If you identify any bugs, want to introduce new features, or enhance the documentation, please open an issue or submit a pull request. Before you start, please review our [Contribution Guidelines](CONTRIBUTING.md).
+We welcome contributions to the Resume Manager API Spring Boot app! If you identify any bugs, want to introduce new features, or enhance the documentation, please open an issue or submit a pull request.
 
 
 Designed and developed with ❤️ by Himanshu Vyas.
