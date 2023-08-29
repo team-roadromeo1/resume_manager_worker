@@ -38,7 +38,7 @@ jobs:
         cache: maven
       
     - name: Setup the environment variable
-      run: export MONGO_DB_ACCESS_KEY_ID=$KEY TEST_DB_URL=$URL TEST_DB_CRED=$CRED
+      run: echo $URL
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
