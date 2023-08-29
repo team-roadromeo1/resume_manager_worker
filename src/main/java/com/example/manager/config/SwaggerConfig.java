@@ -1,8 +1,6 @@
 package com.example.manager.config;
 
 import java.util.Collections;
-
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfig {
 
-	@Contract(" -> new")
+
 	private @NotNull ApiInfo apiInfo() {
 		return new ApiInfo("Resume Builder API", "API for creating and managing resume", "1.0.1", "Terms of Service",
 				new Contact("example.org", "www.example.org", "help@example.org"), "Open-Source",
