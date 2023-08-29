@@ -10,8 +10,8 @@ name: Java CI with Maven
 
 env:
  KEY: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
- URL: ${{secrets.TEST_DB_URL}}
- CRED: ${{secrets.TEST_DB_CRED}}
+ TEST_DB_URL: ${{secrets.TEST_DB_URL}}
+ TEST_DB_CRED: ${{secrets.TEST_DB_CRED}}
      
 
 on:
@@ -38,7 +38,7 @@ jobs:
         cache: maven
       
     - name: Setup the environment variable
-      run: echo $URL
+      run: export TEST_DB_URL=$TEST_DB_URL TEST_DB_CRED=$TEST_DB_CRED 
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
