@@ -10,11 +10,13 @@ name: Java CI with Maven
 
 env:
  KEY: ${{secrets.MONGO_DB_ACCESS_KEY_ID}}
+ TEST_DB_URL: ${{secrets.TEST_DB_URL}}
+ TEST_DB_CRED: ${{secrets.TEST_DB_CRED}}
      
 
 on:
   push:
-    branches: [ "main", "resume_manager_30-04-2023" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   merge_group:
@@ -35,8 +37,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
       
-    - name: Setup the environment variables
-      run: export MONGO_DB_ACCESS_KEY_ID=$KEY
+    - name: Setup the environment variable
+      run: export TEST_DB_URL=$TEST_DB_URL TEST_DB_CRED=$TEST_DB_CRED 
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
