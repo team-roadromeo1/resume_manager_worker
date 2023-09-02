@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 
 import io.swagger.annotations.ApiModelProperty;
@@ -28,6 +29,7 @@ public class Address {
     private Long id;
    
     @NotNull(message = "House number can not be empty.")
+    @Positive(message = "Please enter valid house number.")
     @Column(name = "house_no")
     private int house_no;
    
