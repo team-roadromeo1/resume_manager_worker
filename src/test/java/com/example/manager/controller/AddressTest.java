@@ -53,7 +53,7 @@ public class AddressTest {
     @Autowired
     ResponseFormat response;
 
-    String uri = UrlMapper.globalUrl + UrlMapper.addressUrl;
+    String uri = UrlMapper.GLOBAL_URL + UrlMapper.ADDRESS_URL;
 
     @Test
     void testGetAllAddress() throws Exception {

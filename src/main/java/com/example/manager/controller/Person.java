@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 
 @RestController
-@RequestMapping(value = UrlMapper.globalUrl + UrlMapper.dataUrl)
+@RequestMapping(value = UrlMapper.GLOBAL_URL + UrlMapper.DATA_URL)
 public class Person {
 
     @Autowired
