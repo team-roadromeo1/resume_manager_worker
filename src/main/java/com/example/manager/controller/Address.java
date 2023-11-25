@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = UrlMapper.globalUrl + UrlMapper.addressUrl)
+@RequestMapping(value = UrlMapper.GLOBAL_URL + UrlMapper.ADDRESS_URL)
 public class Address {
 
     @Autowired
