@@ -67,15 +67,15 @@ public class Person {
 	private Set<Address> address;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "project_id", referencedColumnName = "id")
+	@JoinColumn(name = "person_id", referencedColumnName = "id")
 	private Set<Project> project;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "education_id", referencedColumnName = "id")
+	@JoinColumn(name = "person_id", referencedColumnName = "id")
 	private Set<Education> education;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "experience_id", referencedColumnName = "id")
+	@JoinColumn(name = "person_id", referencedColumnName = "id")
 	private Set<Experience> experience;
 
 }
