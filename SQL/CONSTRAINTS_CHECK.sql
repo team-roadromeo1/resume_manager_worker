@@ -1,4 +1,4 @@
---Use this query to find out any constraints, can be filtered with table name, contarints-id, etc.
+--Use this query to find out any constraints, can be filtered with table name, contraints-id, etc.
 
 SELECT *
   FROM user_cons_columns
