@@ -7,10 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import com.example.manager.data.constants.EducationType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +39,7 @@ public class Education {
 	
 	@NotBlank(message = "Education type must not be empty")
 	@Column(name = "type")
-	private String type;
+	private EducationType type;
 	
 	@NotBlank(message = "University name must not be empty")
 	@Column(name = "university")
