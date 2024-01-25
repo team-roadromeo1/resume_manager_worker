@@ -52,7 +52,7 @@ public class PersonTest {
     @Autowired
     ResponseFormat response;
 
-    String uri = UrlMapper.GLOBAL_URL + UrlMapper.DATA_URL;
+    String uri = UrlMapper.GLOBAL_URL + UrlMapper.PERSON_URL;
 
     @Test
     void testGetAllData() throws Exception{
