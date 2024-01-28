@@ -3,9 +3,12 @@ package com.example.manager.service.address;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+import com.example.manager.data.Address;
+import com.example.manager.data.ResponseFormat;
+import com.example.manager.repository.address.AddressRepository;
+import com.example.manager.util.TestData;
 import java.util.List;
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,117 +17,105 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import com.example.manager.data.Address;
-import com.example.manager.data.ResponseFormat;
-import com.example.manager.repository.address.AddressRepository;
-import com.example.manager.util.TestData;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 class AddressServiceImplTest {
 
-    @InjectMocks
-    AddressServiceImpl manager;
+  @InjectMocks AddressServiceImpl manager;
 
-    @Mock
-    AddressRepository repository;
+  @Mock AddressRepository repository;
 
-    @Autowired
-    TestData data;
+  @Autowired TestData data;
 
-    @Mock
-    ResponseFormat response;
+  @Mock ResponseFormat response;
 
-    @Test
-    void listAllAddresses() {
-        List<Address> address = data.getAddressData(3);
-        
-        Mockito.when(repository.findAll()).thenReturn(address);
-        
-        List<Address> testAddress = manager.listAllAddresses();
+  @Test
+  void listAllAddresses() {
+    List<Address> address = data.getAddressData(3);
 
-        assertEquals(3, testAddress.size());
-    }
+    Mockito.when(repository.findAll()).thenReturn(address);
 
-    @Test
-    void addressFromId() {
-        Address address = data.getAddressData(Long.valueOf(1));
+    List<Address> testAddress = manager.listAllAddresses();
 
-        Mockito.when(repository.findById(address.getId())).thenReturn(Optional.of(address));
+    assertEquals(3, testAddress.size());
+  }
 
-        Address testAddress = manager.addressFromId(Long.valueOf(1));
+  @Test
+  void addressFromId() {
+    Address address = data.getAddressData(Long.valueOf(1));
 
-        assertEquals(address.getId(),testAddress.getId());
-        assertEquals(address.getHouse_no(), testAddress.getHouse_no());
-        assertEquals(address.getAddress_details(), testAddress.getAddress_details());
-        assertEquals(address.getLandmark(), testAddress.getLandmark());        
-        assertEquals(address.getOther_landmark(), testAddress.getOther_landmark());
-        assertEquals(address.getCity(), testAddress.getCity());
-        assertEquals(address.getCountry(), testAddress.getCountry());
-        assertEquals(address.getPin_code(), testAddress.getPin_code());
+    Mockito.when(repository.findById(address.getId())).thenReturn(Optional.of(address));
 
-    }
+    Address testAddress = manager.addressFromId(Long.valueOf(1));
 
-    @Test
-    void saveAddress() {
-        Address address = data.getAddressData(Long.valueOf(1));
-        
-        response.setStatus(HttpStatus.CREATED.value());
-        response.setMessage("Record Created");
-        response.setTimeStamp(System.currentTimeMillis());
-    
-        when(repository.save(address)).thenReturn(address);
+    assertEquals(address.getId(), testAddress.getId());
+    assertEquals(address.getHouse_no(), testAddress.getHouse_no());
+    assertEquals(address.getAddress_details(), testAddress.getAddress_details());
+    assertEquals(address.getLandmark(), testAddress.getLandmark());
+    assertEquals(address.getOther_landmark(), testAddress.getOther_landmark());
+    assertEquals(address.getCity(), testAddress.getCity());
+    assertEquals(address.getCountry(), testAddress.getCountry());
+    assertEquals(address.getPin_code(), testAddress.getPin_code());
+  }
 
-        ResponseFormat testResponse = manager.saveAddress(address);
+  @Test
+  void saveAddress() {
+    Address address = data.getAddressData(Long.valueOf(1));
 
-        assertEquals(response.getStatus(), testResponse.getStatus());
-        assertEquals(response.getMessage(), testResponse.getMessage());
-    }
+    response.setStatus(HttpStatus.CREATED.value());
+    response.setMessage("Record Created");
+    response.setTimeStamp(System.currentTimeMillis());
 
+    when(repository.save(address)).thenReturn(address);
 
-    @Test
-    void updateAddress() {
-        Address address = data.getAddressData(Long.valueOf(1));
+    ResponseFormat testResponse = manager.saveAddress(address);
 
-        response.setStatus(HttpStatus.OK.value());
-        response.setMessage("Record Updated");
-        response.setTimeStamp(System.currentTimeMillis());
+    assertEquals(response.getStatus(), testResponse.getStatus());
+    assertEquals(response.getMessage(), testResponse.getMessage());
+  }
 
-        when(repository.save(address)).thenReturn(address);
+  @Test
+  void updateAddress() {
+    Address address = data.getAddressData(Long.valueOf(1));
 
-        ResponseFormat testResponse = manager.updateAddress(address,address.getId());
+    response.setStatus(HttpStatus.OK.value());
+    response.setMessage("Record Updated");
+    response.setTimeStamp(System.currentTimeMillis());
 
-        assertEquals(testResponse.getStatus(), response.getStatus());
-        assertEquals(testResponse.getMessage(), response.getMessage());
-    }
+    when(repository.save(address)).thenReturn(address);
 
-    @Test
-    void deleteAddress() {
-        Long id = Long.valueOf(1);
-        
-        response.setStatus(HttpStatus.OK.value());
-        response.setMessage("Record Deleted");
-        response.setTimeStamp(System.currentTimeMillis());
+    ResponseFormat testResponse = manager.updateAddress(address, address.getId());
 
-        ResponseFormat testResponse = manager.deleteAddress(id);
+    assertEquals(testResponse.getStatus(), response.getStatus());
+    assertEquals(testResponse.getMessage(), response.getMessage());
+  }
 
-        assertEquals(testResponse.getStatus(), response.getStatus());
-        assertEquals(testResponse.getMessage(), response.getMessage());
-    }
+  @Test
+  void deleteAddress() {
+    Long id = Long.valueOf(1);
 
-    @Test
-    void deleteAllAddress() {
-        
-        response.setStatus(HttpStatus.OK.value());
-        response.setMessage("All records deleted");
-        response.setTimeStamp(System.currentTimeMillis());
+    response.setStatus(HttpStatus.OK.value());
+    response.setMessage("Record Deleted");
+    response.setTimeStamp(System.currentTimeMillis());
 
-        ResponseFormat testResponse = manager.deleteAllAddress();
-        
-        assertEquals(testResponse.getStatus(), response.getStatus());
-        assertEquals(testResponse.getMessage(), response.getMessage());
-    }
+    ResponseFormat testResponse = manager.deleteAddress(id);
+
+    assertEquals(testResponse.getStatus(), response.getStatus());
+    assertEquals(testResponse.getMessage(), response.getMessage());
+  }
+
+  @Test
+  void deleteAllAddress() {
+
+    response.setStatus(HttpStatus.OK.value());
+    response.setMessage("All records deleted");
+    response.setTimeStamp(System.currentTimeMillis());
+
+    ResponseFormat testResponse = manager.deleteAllAddress();
+
+    assertEquals(testResponse.getStatus(), response.getStatus());
+    assertEquals(testResponse.getMessage(), response.getMessage());
+  }
 }

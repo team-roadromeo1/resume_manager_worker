@@ -1,6 +1,7 @@
 package com.example.manager.data.constants;
 
 public enum EducationType {
-    FULLTIME,
-    HALFTIME
+  FULLTIME,
+  HALFTIME,
+  SF
 }
