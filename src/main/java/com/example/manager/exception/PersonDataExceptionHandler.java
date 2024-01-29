@@ -9,33 +9,29 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
 @ControllerAdvice
 public class PersonDataExceptionHandler {
-	
-	@Autowired
-	ResponseFormat response;
 
+  @Autowired ResponseFormat response;
 
-	//handle custom exceptions from validation annotations...
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	public @ResponseBody ResponseFormat handleValidationExceptions(MethodArgumentNotValidException ex) {
-		response.setStatus(HttpStatus.BAD_REQUEST.value());
-		ex.getBindingResult().getFieldErrors().forEach(e -> response.setMessage(e.getDefaultMessage()));
-		response.setTimeStamp(System.currentTimeMillis());
-		return response;
-	}
-	
-	
-	//handle all sort of generic exceptions...
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	public @ResponseBody ResponseFormat handleGenericException(Exception ex) {
-		response.setStatus(HttpStatus.BAD_REQUEST.value());
-		response.setMessage(ex.getMessage());
-		response.setTimeStamp(System.currentTimeMillis());
-		return response;
-	}
-	
+  // handle custom exceptions from validation annotations...
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  public @ResponseBody ResponseFormat handleValidationExceptions(
+      MethodArgumentNotValidException ex) {
+    response.setStatus(HttpStatus.BAD_REQUEST.value());
+    ex.getBindingResult().getFieldErrors().forEach(e -> response.setMessage(e.getDefaultMessage()));
+    response.setTimeStamp(System.currentTimeMillis());
+    return response;
+  }
+
+  // handle all sort of generic exceptions...
+  @ExceptionHandler(Exception.class)
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  public @ResponseBody ResponseFormat handleGenericException(Exception ex) {
+    response.setStatus(HttpStatus.BAD_REQUEST.value());
+    response.setMessage(ex.getMessage());
+    response.setTimeStamp(System.currentTimeMillis());
+    return response;
+  }
 }

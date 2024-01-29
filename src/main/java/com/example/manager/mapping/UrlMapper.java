@@ -1,8 +1,7 @@
 package com.example.manager.mapping;
 
 public class UrlMapper {
-	public final static String GLOBAL_URL = "/api/v1/manage/";
-	public final static String PERSON_URL = "person";
-	public final static String ADDRESS_URL = "address";
-
+  public static final String GLOBAL_URL = "/api/v1/manage/";
+  public static final String PERSON_URL = "person";
+  public static final String ADDRESS_URL = "address";
 }
